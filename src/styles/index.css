@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 246 247 245;
+    --surface: 255 255 255;
+    --surface-2: 239 241 238;
+    --line: 220 224 219;
+    --ink: 21 23 26;
+    --muted: 88 96 90;
+    --subtle: 128 136 130;
+    --accent: 24 128 84;
+    --warn: 168 105 16;
+    --danger: 190 58 22;
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: 17 19 18;
+    --surface: 25 28 26;
+    --surface-2: 33 37 35;
+    --line: 47 52 49;
+    --ink: 234 238 235;
+    --muted: 160 168 162;
+    --subtle: 118 126 120;
+    --accent: 82 199 142;
+    --warn: 232 172 72;
+    --danger: 244 122 86;
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-feature-settings: "tnum" 1;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  input[type="range"] {
+    accent-color: rgb(var(--ink));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink
+      placeholder:text-subtle transition-colors hover:border-subtle focus:border-ink focus:outline-none;
+  }
+
+  /* Checkerboard shown behind a transparent code */
+  .checker {
+    background-color: #fff;
+    background-image:
+      linear-gradient(45deg, #e6e6e6 25%, transparent 25%),
+      linear-gradient(-45deg, #e6e6e6 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #e6e6e6 75%),
+      linear-gradient(-45deg, transparent 75%, #e6e6e6 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  }
+
+  /* Printer's crop marks around the preview */
+  .crop-marks {
+    --mark: rgb(var(--subtle));
+    background:
+      linear-gradient(var(--mark), var(--mark)) top left / 14px 1px,
+      linear-gradient(var(--mark), var(--mark)) top left / 1px 14px,
+      linear-gradient(var(--mark), var(--mark)) top right / 14px 1px,
+      linear-gradient(var(--mark), var(--mark)) top right / 1px 14px,
+      linear-gradient(var(--mark), var(--mark)) bottom left / 14px 1px,
+      linear-gradient(var(--mark), var(--mark)) bottom left / 1px 14px,
+      linear-gradient(var(--mark), var(--mark)) bottom right / 14px 1px,
+      linear-gradient(var(--mark), var(--mark)) bottom right / 1px 14px;
+    background-repeat: no-repeat;
+  }
+}
