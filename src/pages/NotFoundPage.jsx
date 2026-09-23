@@ -3,7 +3,6 @@ import { ArrowLeft } from "lucide-react";
 import { Header } from "../components/layout/Header";
 import { useTheme } from "../theme/ThemeProvider";
 import { useI18n } from "../i18n/I18nProvider";
-import ScanScene from "./not-found/ScanScene";
 
 export default function NotFoundPage() {
   const { theme } = useTheme();
@@ -11,7 +10,6 @@ export default function NotFoundPage() {
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden">
-      <ScanScene isDark={theme === "dark"} />
       <Header />
       <main className="relative z-10 flex flex-1 items-center justify-center px-4 py-16 text-center">
         <div className="max-w-md">
