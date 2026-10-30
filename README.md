@@ -41,7 +41,13 @@ L'encodage QR (génération de la matrice de modules, niveaux de correction d'er
 
 ## Capture d'écran
 
-![Interface de génération QR Studio](docs/screenshots/generator-light.png)
+![Interface de génération QR Studio, thème clair](docs/screenshots/generator-light.png)
+
+![Thème sombre](docs/screenshots/generator-dark.png)
+
+## Statut
+
+Application front-end seule (pas de back-end, pas de base de données), déployée sur Vercel. Aucune suite de tests automatisés n'est présente dans le dépôt : la qualité repose sur ESLint (`npm run lint`) et sur des essais manuels. Le dépôt n'a pas de CI configurée.
 
 ## Installation / lancement local
 
@@ -82,6 +88,10 @@ public/
   favicon.svg                 s'adapte au thème système
   brand/                      logos clair/sombre
 ```
+
+## Licence
+
+Aucun fichier de licence n'est présent dans ce dépôt : par défaut, tous droits réservés (le code est visible mais n'est pas sous licence open source). Contacter le propriétaire pour toute réutilisation.
 
 ---
 
